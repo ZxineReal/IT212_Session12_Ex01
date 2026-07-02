@@ -1,0 +1,61 @@
+================================================================
+HISTORY_PROMPTS.TXT
+Bài Kiểm Tra Thực Hành: AI-Assisted System Design
+Chủ đề: Hệ thống Quản lý Giao nhận & Logistics (Delivery Tracking)
+Sinh viên thực hiện: [Họ và tên]
+================================================================
+
+--- PROMPT #1 (Thiết lập bối cảnh & xác định phạm vi) ---
+Tôi muốn bạn đóng vai một Senior System Analyst có 10 năm kinh nghiệm trong lĩnh vực Logistics và Công nghệ thông tin. Chúng ta sẽ cùng nhau xây dựng một bản SRS (Software Requirements Specification) cho hệ thống "DeliverEase" - Hệ thống Quản lý Giao nhận & Logistics hiện đại. Trước tiên, hãy xác định và liệt kê sơ bộ: (1) Các vấn đề thực tế mà hệ thống này cần giải quyết, (2) Ít nhất 4 đối tượng người dùng (Actors) chính, (3) Ít nhất 4 phân hệ (Module) cốt lõi cần có. Chỉ liệt kê ngắn gọn, chưa cần đi vào chi tiết.
+
+--- PROMPT #2 (Mở rộng phần Giới thiệu & Mục tiêu hệ thống) ---
+Tốt. Dựa trên danh sách vừa xác định, hãy viết Phần 1 của tài liệu SRS gồm: 1.1 Tổng quan hệ thống (mô tả bài toán thực tế, quy mô doanh nghiệp mục tiêu), 1.2 Mục tiêu dự án (ít nhất 5 mục tiêu đo lường được - SMART goals), 1.3 Phạm vi hệ thống (những gì IN SCOPE và OUT OF SCOPE). Hãy viết theo chuẩn tài liệu kỹ thuật chuyên nghiệp, không dùng ngôn ngữ marketing.
+
+--- PROMPT #3 (Xác định và làm rõ các Actors) ---
+Hãy viết Phần 2 - Các Đối Tượng Người Dùng (Actors). Với mỗi Actor, hãy mô tả: (a) Tên và vai trò, (b) Trình độ kỹ thuật, (c) Mục tiêu chính khi sử dụng hệ thống, (d) Các hạn chế hoặc quyền truy cập đặc biệt. Các Actors cần bao gồm: Khách hàng (Customer), Tài xế/Shipper, Nhân viên kho (Warehouse Staff), Điều phối viên (Dispatcher), Quản lý (Manager), và Quản trị hệ thống (System Admin).
+
+--- PROMPT #4 (Sinh User Stories theo từng Actor) ---
+Bây giờ hãy viết Phần 3 - User Stories theo định dạng chuẩn Agile: "Với tư cách là [Actor], tôi muốn [hành động] để [lợi ích]". Yêu cầu: Mỗi Actor phải có ít nhất 4 User Stories. Sau mỗi User Story, hãy thêm Acceptance Criteria (tiêu chí chấp nhận) gồm 2-3 điều kiện cụ thể. Tổng số User Stories không dưới 20.
+
+--- PROMPT #5 (Bổ sung User Story còn thiếu) ---
+Tôi thấy phần User Stories đang thiếu một số chức năng quan trọng. Hãy bổ sung thêm User Stories cho các tình huống sau: (1) Khách hàng hủy đơn hàng trước khi tài xế lấy hàng, (2) Tài xế báo cáo sự cố trong quá trình giao hàng (xe hỏng, tai nạn), (3) Hệ thống tự động gửi thông báo khi đơn hàng trễ hơn thời gian dự kiến, (4) Quản lý xem báo cáo hiệu suất giao hàng theo từng tài xế. Hãy viết theo đúng định dạng User Story + Acceptance Criteria như trước.
+
+--- PROMPT #6 (Thiết kế Use Case Diagram - Mermaid) ---
+Hãy tạo Use Case Diagram bằng cú pháp Mermaid cho hệ thống DeliverEase. Diagram phải thể hiện đầy đủ: (1) Tất cả 6 Actors đã xác định, (2) Ít nhất 20 use cases quan trọng, (3) Các mối quan hệ include và extend giữa các use cases, (4) Ranh giới hệ thống (system boundary). Hãy nhóm các use cases theo từng phân hệ để diagram dễ đọc hơn.
+
+--- PROMPT #7 (Chỉnh sửa Use Case Diagram) ---
+Use Case Diagram trên có một số vấn đề cần chỉnh sửa: (1) Thêm Actor "Hệ thống thông báo bên ngoài" (External Notification System) như một external actor, (2) Bổ sung use case "Tích hợp thanh toán điện tử" và "Tra cứu đơn hàng qua mã vận đơn" vào diagram, (3) Thêm quan hệ <<extend>> giữa "Giao hàng thành công" và "Yêu cầu chữ ký xác nhận". Hãy cập nhật lại toàn bộ Mermaid code.
+
+--- PROMPT #8 (Đặc tả yêu cầu chức năng theo từng Module) ---
+Hãy viết Phần 4 - Đặc Tả Yêu Cầu Chức Năng (Functional Requirements) cho 4 Module chính: (1) Module Quản lý Đơn hàng (Order Management), (2) Module Theo dõi Lộ trình (Route Tracking), (3) Module Quản lý Kho (Warehouse Management), (4) Module Báo cáo & Thống kê (Reporting & Analytics). Với mỗi Module, hãy liệt kê các chức năng dưới dạng FR-XXX (Functional Requirement ID), mô tả chi tiết và mức độ ưu tiên (Must Have / Should Have / Could Have).
+
+--- PROMPT #9 (Bổ sung thêm Module và yêu cầu phi chức năng) ---
+Hãy bổ sung thêm: (1) Module thứ 5: Quản lý Tài xế & Phương tiện (Driver & Fleet Management) với đầy đủ chức năng như các Module trước, (2) Phần 5 - Yêu cầu Phi Chức Năng (Non-Functional Requirements) gồm: Hiệu năng (Performance), Bảo mật (Security), Khả năng mở rộng (Scalability), Độ sẵn sàng (Availability), và Khả năng sử dụng (Usability). Mỗi NFR phải có chỉ số đo lường cụ thể.
+
+--- PROMPT #10 (Thiết kế ERD - Entity Relationship Diagram) ---
+Hãy thiết kế Entity Relationship Diagram (ERD) cho hệ thống DeliverEase bằng cú pháp Mermaid erDiagram. Diagram phải bao gồm ít nhất 10 entities chính: Customer, Order, OrderItem, Package, Driver, Vehicle, Warehouse, Route, DeliveryLog, Notification. Với mỗi entity, hãy định nghĩa đầy đủ các thuộc tính (attributes) và kiểu dữ liệu. Hãy thể hiện rõ các mối quan hệ 1-1, 1-N, và N-N với ký hiệu chuẩn ERD.
+
+--- PROMPT #11 (Chỉnh sửa ERD - thêm bảng và quan hệ còn thiếu) ---
+ERD trên đang thiếu một số bảng và quan hệ quan trọng. Hãy thực hiện các chỉnh sửa sau: (1) Thêm entity "Payment" với các trường: payment_id, order_id, amount, method (COD/VNPay/Momo), status, paid_at, (2) Thêm entity "Rating" để khách hàng đánh giá dịch vụ giao hàng, (3) Thêm bảng trung gian "RouteStop" để biểu diễn quan hệ N-N giữa Route và Warehouse, (4) Thêm trường "status" vào bảng Order với các giá trị: PENDING, CONFIRMED, PICKED_UP, IN_TRANSIT, DELIVERED, CANCELLED, RETURNED. Cập nhật lại toàn bộ ERD Mermaid.
+
+--- PROMPT #12 (Thiết kế Kiến trúc hệ thống - System Architecture) ---
+Hãy viết Phần 6 - Kiến Trúc Hệ Thống (System Architecture). Bao gồm: (1) Mô tả kiến trúc tổng thể (đề xuất Microservices hay Monolithic và lý do tại sao), (2) Sơ đồ kiến trúc các lớp (Presentation, Business Logic, Data Access, Database) bằng Mermaid flowchart, (3) Danh sách các công nghệ đề xuất (Tech Stack) cho Frontend, Backend, Database, và Infrastructure, (4) Mô tả cơ chế Real-time Tracking sử dụng WebSocket hoặc Server-Sent Events.
+
+--- PROMPT #13 (Thêm sơ đồ luồng nghiệp vụ quan trọng) ---
+Hãy vẽ 2 sơ đồ Sequence Diagram bằng Mermaid cho 2 luồng nghiệp vụ quan trọng nhất: (1) Luồng "Khách hàng đặt đơn → Tài xế lấy hàng → Giao hàng thành công" - thể hiện tất cả các bước tương tác giữa Customer, OrderService, DriverService, NotificationService, và PaymentService, (2) Luồng "Xử lý đơn hàng trả về (Return Order)" khi khách hàng từ chối nhận hàng.
+
+--- PROMPT #14 (Bổ sung Glossary và ràng buộc dữ liệu) ---
+Hãy bổ sung thêm 2 phần cuối của tài liệu SRS: (1) Phần 7 - Ràng Buộc Dữ Liệu & Quy Tắc Nghiệp Vụ (Data Constraints & Business Rules): ít nhất 10 rules quan trọng (ví dụ: một đơn hàng chỉ được hủy khi chưa có tài xế nhận, tài xế chỉ được nhận tối đa 15 đơn/ngày...), (2) Phần 8 - Bảng Thuật Ngữ (Glossary): định nghĩa ít nhất 15 thuật ngữ chuyên ngành được sử dụng trong tài liệu.
+
+--- PROMPT #15 (Rà soát và hoàn thiện toàn bộ tài liệu) ---
+Hãy đọc lại toàn bộ tài liệu SRS chúng ta đã xây dựng và thực hiện các bước cuối cùng: (1) Kiểm tra xem có chức năng nào quan trọng bị bỏ sót không và bổ sung nếu có, (2) Tạo Trang Bìa (Cover Page) chuyên nghiệp với thông tin: tên hệ thống, phiên bản tài liệu (v1.0), ngày tạo, (3) Tạo Mục Lục (Table of Contents) đầy đủ cho toàn bộ tài liệu, (4) Viết Phần Tóm Tắt Điều Hành (Executive Summary) 1 trang cho lãnh đạo doanh nghiệp không có nền tảng kỹ thuật.
+
+================================================================
+Tổng số Prompt: 15
+Kỹ thuật được sử dụng:
+  - Role-based prompting (đặt AI vào vai trò chuyên gia)
+  - Iterative prompting (xây dựng từng phần theo thứ tự)
+  - Refinement prompting (yêu cầu chỉnh sửa, bổ sung)
+  - Constraint prompting (đặt ra tiêu chí cụ thể)
+  - Chaining prompts (prompt sau kế thừa kết quả prompt trước)
+================================================================

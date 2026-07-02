@@ -1,0 +1,261 @@
+==============================================================
+FILE 01 – CÁC PROMPT TẠO TÀI LIỆU SRS
+Dự án: Hệ thống eKYC – ABC Bank
+Môn học: IT212 – Business Analysis
+==============================================================
+
+────────────────────────────────────────────────────────────
+PROMPT 1 – THIẾT LẬP VAI TRÒ & NẠP BỐI CẢNH (ROLE + CONTEXT)
+────────────────────────────────────────────────────────────
+Bạn là Senior Business Analyst kiêm Technical Writer với hơn
+10 năm kinh nghiệm trong lĩnh vực FinTech và Ngân hàng số
+tại Đông Nam Á. Bạn có chuyên môn sâu về:
+- Viết tài liệu Software Requirements Specification (SRS)
+  theo chuẩn IEEE 830 / IEEE 29148.
+- Hệ thống eKYC (Electronic Know Your Customer): OCR, Liveness
+  Detection, Face Matching, AML/PEP Screening.
+- Tuân thủ pháp lý tài chính Việt Nam: Thông tư 16/2020/TT-NHNN,
+  Nghị định 13/2023/NĐ-CP, tiêu chuẩn PCI-DSS.
+
+Dưới đây là toàn bộ kết quả phân tích nghiệp vụ (BRD) từ
+Bài 01 cho hệ thống eKYC của ABC Bank:
+
+[DÁN TOÀN BỘ NỘI DUNG FILE ekyc_brd_analysis.md VÀO ĐÂY]
+
+Nhiệm vụ: Hãy xác nhận bạn đã nắm đủ thông tin và sẵn sàng
+viết tài liệu SRS chính thức để bàn giao cho đội Development
+và QA. Trả lời ngắn gọn và xác nhận hiểu bối cảnh.
+
+────────────────────────────────────────────────────────────
+PROMPT 2 – SINH PHẦN 1: INTRODUCTION (GIỚI THIỆU CHUNG)
+────────────────────────────────────────────────────────────
+Dựa trên phân tích BRD eKYC ABC Bank ở trên, hãy viết
+Phần 1 – Introduction của tài liệu SRS theo chuẩn IEEE 830,
+bao gồm đầy đủ 4 mục sau:
+
+1.1 PURPOSE (Mục đích tài liệu)
+- Nêu rõ mục đích của tài liệu SRS này là gì.
+- Xác định đối tượng đọc: Development Team, QA Team,
+  Project Manager, và Ban Giám Đốc ABC Bank.
+
+1.2 SCOPE (Phạm vi hệ thống)
+- Tên hệ thống: eKYC System – ABC Bank.
+- Mô tả ngắn gọn hệ thống làm gì (what it does).
+- Liệt kê các chức năng NẰM TRONG phạm vi (in-scope):
+  Đăng ký tài khoản, OCR nhận diện CCCD, Liveness Check &
+  Face Matching, Đối soát AML/PEP, Ký hợp đồng điện tử,
+  Kích hoạt tài khoản.
+- Liệt kê các chức năng NGOÀI phạm vi (out-of-scope):
+  Quản lý thẻ, Cho vay, Nộp thuế, v.v.
+
+1.3 DEFINITIONS, ACRONYMS AND ABBREVIATIONS (Thuật ngữ)
+- Giải thích tối thiểu 12 thuật ngữ/viết tắt:
+  eKYC, OCR, OTP, CCCD, Liveness Check, Face Matching,
+  AML, PEP, CIF, NFC, BRD, SRS, PII, TLS, API, Telco,
+  Core Banking, TPS.
+
+1.4 REFERENCES (Tài liệu tham chiếu)
+- Liệt kê các văn bản pháp lý và tài liệu nội bộ liên quan.
+
+Yêu cầu format: Dùng tiêu đề đánh số rõ ràng (1.1, 1.2...),
+văn phong chuyên nghiệp, ngôn ngữ Tiếng Việt. Các bảng dùng
+Markdown table.
+
+────────────────────────────────────────────────────────────
+PROMPT 3 – SINH PHẦN 2: OVERALL DESCRIPTION (MÔ TẢ TỔNG QUAN)
+────────────────────────────────────────────────────────────
+Tiếp tục với tài liệu SRS eKYC ABC Bank, hãy viết
+Phần 2 – Overall Description bao gồm đầy đủ 3 mục:
+
+2.1 PRODUCT PERSPECTIVE (Góc nhìn sản phẩm)
+- Mô tả hệ thống eKYC là một module mới tích hợp vào
+  hệ sinh thái ngân hàng số ABC Bank.
+- Vẽ sơ đồ kiến trúc tổng thể (context diagram dạng text/
+  Mermaid) cho thấy eKYC Engine kết nối với: App Mobile,
+  Core Banking, Telcos, AML/PEP Database, SMS Gateway,
+  Cơ sở dữ liệu Dân cư (C06/RAR).
+- Mô tả giao diện hệ thống: User Interface (App Mobile),
+  Hardware Interface (Camera, NFC), Software Interface
+  (Core Banking API, Telco API), Communication Interface
+  (HTTPS TLS 1.3).
+
+2.2 USER CLASSES AND CHARACTERISTICS (Đặc điểm người dùng)
+- Lập bảng mô tả tối thiểu 4 nhóm người dùng:
+  Khách hàng cá nhân, Giao dịch viên hậu kiểm (Fraud Analyst),
+  Quản trị viên hệ thống, Developer/Integration Team.
+- Mỗi nhóm cần: Đặc điểm, Kỹ năng kỹ thuật, Quyền truy cập,
+  Mức độ ưu tiên.
+
+2.3 CONSTRAINTS (Các giới hạn)
+- Giới hạn Pháp lý: Thông tư 16/2020/TT-NHNN (hạn mức 100tr/tháng),
+  Nghị định 13/2023/NĐ-CP (bảo vệ dữ liệu cá nhân).
+- Giới hạn Kỹ thuật: Thiết bị tối thiểu (Android 8.0+/iOS 14.0+,
+  camera 5MP+), chuẩn TLS 1.3, AES-256.
+- Giới hạn Nghiệp vụ: Chỉ phục vụ khách hàng cá nhân trong nước,
+  giấy tờ tùy thân hợp lệ còn hạn.
+
+Yêu cầu format: Tiêu đề đánh số (2.1, 2.2, 2.3), bảng Markdown,
+sơ đồ Mermaid cho Context Diagram.
+
+────────────────────────────────────────────────────────────
+PROMPT 4 – SINH PHẦN 3: SPECIFIC FUNCTIONAL REQUIREMENTS
+────────────────────────────────────────────────────────────
+Tiếp tục tài liệu SRS, hãy viết Phần 3 – Specific Functional
+Requirements với đầy đủ 4 module bắt buộc dưới đây.
+
+Với MỖI yêu cầu chức năng, hãy trình bày theo bảng có cột:
+| FR-ID | Tên chức năng | Mô tả chi tiết | Input | Output | Priority |
+
+MODULE 3.1 – ĐĂNG KÝ TÀI KHOẢN (Account Registration)
+- FR-1.1 đến FR-1.4: Nhập SĐT/Email, gửi OTP, kiểm tra OTP,
+  kiểm tra SĐT đã tồn tại.
+
+MODULE 3.2 – UPLOAD & ĐỌC CCCD (OCR Module)
+- FR-2.1 đến FR-2.5: Phân biệt loại giấy tờ, trích xuất OCR,
+  kiểm tra hạn CCCD, kiểm tra chất lượng ảnh, chống giả mạo
+  giấy tờ.
+
+MODULE 3.3 – XÁC THỰC KHUÔN MẶT (Biometrics / Face Auth)
+- FR-3.1 đến FR-3.3: Liveness Detection (Active & Passive),
+  Face Matching 1:1 với ngưỡng >= 80%, Confidence Score.
+
+MODULE 3.4 – KÍCH HOẠT TÀI KHOẢN (Account Activation)
+- FR-5.1 đến FR-5.4: Tạo hợp đồng điện tử, ký OTP, tích hợp
+  Core Banking (tạo CIF, cấp tài khoản), gửi SMS thông báo.
+
+Yêu cầu bổ sung:
+- Gộp thêm Module Đối soát (FR-4.1 đến FR-4.3): AML/PEP,
+  Telco API, Device Fingerprinting.
+- Đánh mức Priority: Must Have / Should Have / Nice to Have.
+- Tổng số FR tối thiểu: 15 yêu cầu.
+
+────────────────────────────────────────────────────────────
+PROMPT 5 – SINH PHẦN 4: NON-FUNCTIONAL REQUIREMENTS
+────────────────────────────────────────────────────────────
+Tiếp tục tài liệu SRS, hãy viết Phần 4 – Non-Functional
+Requirements với đầy đủ các tiêu chuẩn sau:
+
+4.1 SECURITY (Bảo mật dữ liệu cá nhân)
+- Mã hóa In-transit: HTTPS, TLS 1.3, SSL Pinning.
+- Mã hóa At-rest: AES-256 cho PII, ảnh CCCD, dữ liệu
+  sinh trắc học.
+- An toàn ứng dụng: Chống dịch ngược (Obfuscation), chặn
+  chụp màn hình trong luồng eKYC, chặn thiết bị Root/Jailbreak.
+- Tiêu chuẩn: PCI-DSS, An toàn thông tin cấp độ 3 (TT 06/2023).
+
+4.2 PERFORMANCE (Thời gian phản hồi API)
+- OCR processing time: < 1.5 giây.
+- Face Matching + Liveness Check: < 2.0 giây.
+- Toàn bộ luồng eKYC (backend, không tính thao tác user): < 10 giây.
+- Throughput: 200 TPS bình thường, scale đến 1,000 TPS peak.
+
+4.3 AVAILABILITY (Tính sẵn sàng hệ thống)
+- SLA Uptime: >= 99.9% (tức < 8.76 giờ downtime/năm).
+- Kiến trúc: Active-Active tại 2 DC độc lập (DC & DR).
+- Microservices + Kubernetes + Auto-scaling.
+- Không có Single Point of Failure (SPOF).
+
+4.4 USABILITY (Trải nghiệm người dùng – nếu có)
+- Toàn bộ luồng eKYC hoàn thành trong < 5 phút.
+- Hướng dẫn trực quan từng bước (hình ảnh/animation).
+
+4.5 MAINTAINABILITY (Khả năng bảo trì)
+- Logging tập trung (ELK Stack hoặc tương đương).
+- Cập nhật ngưỡng tham số không cần re-deploy.
+
+Yêu cầu: Trình bày dưới dạng bảng Markdown có cột:
+| NFR-ID | Nhóm | Tiêu chí | Chỉ tiêu cụ thể | Phương pháp kiểm chứng |
+
+────────────────────────────────────────────────────────────
+PROMPT 6 – SINH PHẦN 5: USE CASE DIAGRAM (MERMAID)
+────────────────────────────────────────────────────────────
+Tiếp tục tài liệu SRS eKYC ABC Bank, hãy viết Phần 5 –
+Visual Diagram.
+
+Yêu cầu: Sinh mã Mermaid để vẽ Use Case Diagram mô tả đầy
+đủ luồng thao tác của User (Actor) và System, bao gồm:
+
+ACTORS cần thể hiện:
+- Khách hàng (Customer) – primary
+- Hệ thống eKYC Engine – system
+- Hệ thống Core Banking – external system
+- Nhà mạng viễn thông (Telcos) – external
+- Cơ sở dữ liệu Dân cư / AML-PEP – external
+
+USE CASES cần thể hiện (tối thiểu 8):
+1. Đăng ký & Xác thực OTP
+2. Chụp và tải lên ảnh CCCD
+3. OCR trích xuất thông tin CCCD
+4. Thực hiện Liveness Check
+5. Thực hiện Face Matching
+6. Đối soát AML/PEP/Telco
+7. Ký hợp đồng điện tử
+8. Kích hoạt tài khoản & Thông báo
+
+Mã Mermaid cần dùng cú pháp `graph LR` hoặc
+`graph TD` (KHÔNG dùng flowchart). Đảm bảo mã render được
+trực tiếp trên Mermaid Live Editor (https://mermaid.live).
+
+Sau đó, viết mô tả ngắn (2-3 câu) giải thích sơ đồ.
+
+────────────────────────────────────────────────────────────
+PROMPT 7 – TỔNG HỢP & HOÀN THIỆN TOÀN BỘ TÀI LIỆU SRS
+────────────────────────────────────────────────────────────
+Dựa trên tất cả các phần đã sinh (Phần 1 đến Phần 5),
+hãy tổng hợp và xuất ra TÀI LIỆU SRS HOÀN CHỈNH theo
+cấu trúc sau, đảm bảo:
+
+□ Trang bìa (Project name, Version, Date, Authors)
+□ Mục lục (Table of Contents) đánh số đầy đủ
+□ Phần 1 – Introduction (1.1 → 1.4)
+□ Phần 2 – Overall Description (2.1 → 2.3 + Mermaid Context Diagram)
+□ Phần 3 – Specific Functional Requirements (FR-1.x → FR-5.x,
+            đủ 4 module bắt buộc, dạng bảng)
+□ Phần 4 – Non-Functional Requirements (NFR dạng bảng,
+            đủ Security / Performance / Availability)
+□ Phần 5 – Visual Diagram (Mermaid Use Case Diagram + giải thích)
+□ Phần 6 – Appendix: Danh sách từ viết tắt bổ sung (nếu cần)
+
+Định dạng output: Markdown chuẩn, sẵn sàng export sang
+PDF hoặc DOCX bằng công cụ Pandoc/Typora.
+
+==============================================================
+GHI CHÚ VỀ KỸ THUẬT ĐẶT PROMPT (PROMPT ENGINEERING NOTES)
+==============================================================
+Chuỗi 7 prompt trên được thiết kế theo nguyên tắc:
+
+1. ROLE PROMPTING    : Prompt 1 gán vai trò chuyên gia cụ thể
+                       (Senior BA + Technical Writer) để định
+                       hướng tone, chuyên môn và chuẩn mực
+                       output (IEEE 830).
+
+2. CONTEXT INJECTION : Toàn bộ BRD từ Bài 01 được nạp vào
+                       ngay từ Prompt 1 giúp AI có đủ dữ liệu
+                       nghiệp vụ để sinh SRS chính xác và
+                       không bịa đặt thông tin.
+
+3. STRUCTURED OUTPUT : Mỗi prompt yêu cầu output theo cấu
+                       trúc rõ ràng (mục số, bảng Markdown,
+                       mã Mermaid) để dễ dàng tổng hợp
+                       thành tài liệu cuối cùng.
+
+4. SECTION CHAINING  : Mỗi prompt kế thừa (chain) kết quả
+                       của prompt trước ("Tiếp tục tài liệu
+                       SRS...") để AI duy trì ngữ cảnh và
+                       tránh mâu thuẫn nội bộ giữa các phần.
+
+5. CONSTRAINTS       : Ràng buộc format output chi tiết
+                       (đánh số FR-x.x, bảng có đủ cột,
+                       mã Mermaid render được, ngôn ngữ
+                       Tiếng Việt chuyên nghiệp).
+
+6. SPECIFICITY       : Mỗi prompt liệt kê CỤ THỂ những gì
+                       cần có (số lượng FR tối thiểu, số
+                       thuật ngữ tối thiểu, tên các Use Case)
+                       để tránh output mơ hồ hoặc thiếu sót.
+
+7. SYNTHESIS PROMPT  : Prompt 7 là "Assembly Prompt" – yêu
+                       cầu AI gộp tất cả các phần đã sinh
+                       thành một tài liệu hoàn chỉnh duy nhất,
+                       có trang bìa và mục lục.
+==============================================================
