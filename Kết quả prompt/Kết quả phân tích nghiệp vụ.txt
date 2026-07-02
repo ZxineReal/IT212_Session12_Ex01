@@ -1,0 +1,37 @@
+Kết quả phân tích nghiệp vụ:
+1. Xin chào, tôi đã xác nhận vai trò Senior Business Analyst (FinTech & Digital Banking) với hơn 10 năm kinh nghiệm.
+
+Tôi đã sẵn sàng đồng hành cùng bạn để bắt đầu phân tích và thiết kế hệ thống eKYC cho ABC Bank, đảm bảo:
+
+Tối ưu hóa trải nghiệm khách hàng (UX/UI) trong luồng đăng ký số.
+Quy trình nghiệp vụ chặt chẽ, kiểm soát rủi ro gian lận (Fraud Detection, Liveness Detection).
+Tuân thủ đầy đủ các quy định pháp lý hiện hành (Thông tư 16/2020/TT-NHNN, Nghị định 13/2023/NĐ-CP về Bảo vệ dữ liệu cá nhân, tiêu chuẩn bảo mật PCI-DSS).
+Chuẩn hóa tài liệu kỹ thuật (BRD, SRS, FSD, User Stories, Use Cases).
+Hãy chia sẻ thêm về bối cảnh, mục tiêu hoặc các tài liệu/yêu cầu ban đầu của ABC Bank để chúng ta bắt đầu.
+
+2. Tôi đã thực hiện phân tích chi tiết yêu cầu hệ thống eKYC cho ABC Bank và lập tài liệu yêu cầu nghiệp vụ ban đầu.
+
+Chi tiết phân tích đã được ghi nhận tại file: 
+ekyc_brd_analysis.md
+.
+
+Dưới đây là một số câu hỏi nghiệp vụ và quyết định thiết kế quan trọng cần bạn phản hồi để hoàn thiện luồng hệ thống:
+
+Phương án xử lý khi OCR hoặc Face Match không đạt ngưỡng tự động: Để đạt mục tiêu Zero manual operation, khi hệ thống từ chối tự động (ví dụ: điểm tương đồng khuôn mặt đạt 75% - dưới ngưỡng 80%), chúng ta nên:
+
+Phương án A: Từ chối thẳng và yêu cầu khách hàng ra quầy. (Ưu điểm: An toàn tuyệt đối; Nhược điểm: Tăng tỷ lệ drop-off).
+Phương án B: Chuyển tiếp sang luồng Video KYC tự động (sử dụng AI Bot tương tác bằng giọng nói/hình ảnh để xác thực thêm) trước khi quyết định từ chối.
+Phương án C: Đưa vào hàng đợi phê duyệt bất đồng bộ (Asynchronous Queue) cho bộ phận kiểm soát rủi ro hậu kiểm trong vòng 5-10 phút.
+Xác thực CCCD gắn chip qua NFC: ABC Bank có yêu cầu bắt buộc khách hàng phải quét chip NFC trên CCCD bằng điện thoại trong luồng đăng ký trực tuyến hay không? (Thông tư của Ngân hàng Nhà nước có lộ trình bắt buộc áp dụng đối sánh sinh trắc học với Cơ sở dữ liệu Quốc gia về Dân cư đối với một số hạn mức giao dịch nhất định).
+
+Cơ chế kiểm tra số điện thoại chính chủ (Telco API): Ngân hàng đã có sẵn hợp đồng kết nối với các nhà mạng (Viettel, Mobifone, Vinaphone) để đối soát thông tin thuê bao chưa, hay chúng ta sẽ thiết kế một cổng tích hợp chung (Aggregator Gateway) để kết nối bên thứ ba?
+
+3. Tôi đã tạo và cập nhật tài liệu chi tiết chứa User Stories (chuẩn Agile/Scrum) và Use Cases (chuẩn UML/IEEE) cho dự án eKYC của ABC Bank.
+
+Tài liệu được lưu trữ tại đường dẫn sau:
+ekyc_stories_usecases.md
+
+Điểm nổi bật trong tài liệu vừa tạo:
+User Stories (PHẦN 1): Bao gồm 11 User Stories bao phủ toàn bộ luồng nghiệp vụ từ nhập thông tin ban đầu (OTP), định danh sinh trắc học và OCR, đối soát kiểm tra gian lận (Telcos, AML/PEP), ký kết hợp đồng số, cấp tài khoản Core Banking và quản trị tham số. Mỗi story đều đi kèm bộ tiêu chí nghiệm thu Acceptance Criteria (Given-When-Then) chi tiết.
+Use Cases (PHẦN 2): Xây dựng chi tiết 4 Use Cases cốt lõi bao gồm điều kiện tiên quyết, luồng nghiệp vụ chính (Happy Path), các luồng thay thế và cách xử lý lỗi ngoại lệ chi tiết cho từng bước định danh tự động.
+Bạn có thể mở tài liệu trực tiếp để xem xét và phản hồi nếu cần điều chỉnh thêm thông tin nào trước khi chúng ta tiến hành các bước tiếp theo của dự án.

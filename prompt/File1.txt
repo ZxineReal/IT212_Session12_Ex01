@@ -1,0 +1,78 @@
+Các prompt đã sử dụng:
+1. Bạn là một Senior Business Analyst với hơn 10 năm kinh nghiệm
+làm việc trong lĩnh vực FinTech và Ngân hàng số tại các tổ
+chức tài chính lớn tại Đông Nam Á.
+
+Bạn có chuyên môn sâu về:
+- Quy trình eKYC (Electronic Know Your Customer)
+- Thiết kế luồng nghiệp vụ số hóa (Digital Business Process)
+- Viết tài liệu yêu cầu hệ thống (BRD / SRS / FSD)
+- Chuyển đổi requirements thành User Stories và Use Cases
+  theo chuẩn Agile/Scrum
+- Tuân thủ quy định tài chính (Basel, PCI-DSS, Thông tư 16,
+  Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân)
+
+Hãy xác nhận vai trò và cho biết bạn sẵn sàng bắt đầu phân
+tích hệ thống eKYC cho ABC Bank.
+
+2. Với vai trò là Senior Business Analyst, hãy phân tích hệ thống
+trên và trả về đầy đủ các thành phần sau:
+
+A) ACTORS – Các tác nhân tham gia hệ thống
+   (liệt kê đầy đủ, phân loại Primary/Secondary/External)
+
+B) BUSINESS FLOW – Luồng nghiệp vụ từng bước
+   (mô tả chi tiết từng bước, bao gồm cả luồng thành công và
+   luồng thất bại/ngoại lệ)
+
+C) FUNCTIONAL REQUIREMENTS – Yêu cầu chức năng
+   (phân nhóm theo module, đánh số FR-01, FR-02,...)
+
+D) NON-FUNCTIONAL REQUIREMENTS – Yêu cầu phi chức năng
+   (bao gồm: Bảo mật, Hiệu năng, Khả năng mở rộng, Khả năng
+   dự phòng, Tuân thủ pháp lý)
+
+E) ASSUMPTIONS & BUSINESS RULES – Giả định & Quy tắc nghiệp vụ
+   (các giả định kỹ thuật, quy tắc xử lý, giới hạn nghiệp vụ)
+
+3. Dựa trên toàn bộ phân tích nghiệp vụ hệ thống eKYC của
+ABC Bank ở trên, hãy sinh ra các Artifacts sau:
+
+PHẦN 1 – USER STORIES
+Viết danh sách User Stories theo đúng chuẩn Agile:
+  "As a [Actor], I want to [Action], So that [Benefit/Value]"
+
+Yêu cầu:
+- Bao phủ tất cả các Actor đã xác định
+- Mỗi User Story phải có Acceptance Criteria (tiêu chí chấp nhận)
+- Đánh số US-01, US-02,...
+- Phân nhóm theo Epic (nhóm tính năng lớn)
+
+PHẦN 2 – USE CASES
+Viết danh sách Use Cases theo chuẩn UML/IEEE đầy đủ:
+  - Use Case ID và Tên
+  - Actor (Tác nhân chính)
+  - Mô tả ngắn (Brief Description)
+  - Precondition (Điều kiện tiên quyết)
+  - Main Flow (Luồng chính – các bước thành công)
+  - Alternative Flow (Luồng thay thế)
+  - Exception Flow (Luồng ngoại lệ / xử lý lỗi)
+  - Postcondition (Điều kiện sau khi hoàn thành)
+
+Yêu cầu: Đánh số UC-01, UC-02,... và phân nhóm theo module.
+
+────────────────────────────────────────────────────────────
+GHI CHÚ VỀ KỸ THUẬT ĐẶT PROMPT
+────────────────────────────────────────────────────────────
+Chuỗi prompt trên được thiết kế theo nguyên tắc:
+1. ROLE PROMPTING   : Gán vai trò chuyên gia cụ thể để định
+                      hướng tone và chuyên môn của câu trả lời
+2. CONTEXT SETTING  : Cung cấp đầy đủ bối cảnh nghiệp vụ
+                      trước khi yêu cầu phân tích
+3. STRUCTURED OUTPUT: Yêu cầu output có cấu trúc rõ ràng
+                      (A, B, C, D, E) để dễ tổ chức tài liệu
+4. CHAINING        : Prompt sau kế thừa kết quả của prompt
+                      trước ("Dựa trên phân tích ở trên...")
+5. CONSTRAINTS     : Ràng buộc format output (đánh số, phân
+                      nhóm, theo chuẩn Agile/UML)
+==============================================================
